@@ -3,9 +3,9 @@
 <table>
   <thead>
      <tr>
-       <td>Title</td>
-       <td>Description</td>
-       <td>Actions</td>
+       <th>Title</th>
+       <th>Description</th>
+       <th colspan="3">Actions</th>
      </tr>
   </thead>
 
@@ -13,9 +13,13 @@
    <% @articles.each do |article| %>
     <tr>
       <td> <%= article.title %> </td>
-      <td> <%= article.desciption %> </td>
-      <td>Placeholder</td>
+      <td> <%= article.desciption %></td>
+      <td> <%= link_to 'Show', article_path(article) %> </td>
+      <td> <%= link_to 'Edit', edit_article_path(article) %> </td>
+      <td> <%= link_to  "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure ?"} %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+ <p> <%= link_to 'Create New Article', new_article_path %> </p>
