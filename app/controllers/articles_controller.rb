@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # byebug
+    #byebug
     @article = Article.new(article_params)
     @article.user = current_user
      if @article.save
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   end
 
   def update 
-  
+    #byebug  
       if @article.update(article_params)
         flash[:notice] = "the article was updated."
         redirect_to @article
@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
    end
 
    def article_params
-     params.require(:article).permit(:title, :desciption, cetagory_ids: [])
+     params.require(:article).permit(:title, :desciption, category_ids: [])
    end
 
    def require_same_user
