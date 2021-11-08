@@ -3,7 +3,8 @@ class CategoriesController < ApplicationController
   before_action :require_admin, except: [:show, :index]
   
   def show 
-    @category = Category.find(params[:id]) 
+    @category = Category.find(params[:id])
+    @articles = @category.articles.paginate(page: params[:page], per_page: 3)
   end
 
   def new 
